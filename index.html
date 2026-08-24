@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Project Dashboard&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--ink: #172820;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--paper: #f5f2e9;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--moss: #38634d;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--clay: #c8623f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--clay-light: #f5ede8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--moss-light: #e8f0ec;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--line: rgba(23,40,32,.16);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>* { box-sizing: border-box; margin: 0; padding: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>html { scroll-behavior: smooth; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--paper);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--ink);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'DM Sans', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.shell {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: 285px 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* SIDEBAR */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sidebar {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: sticky;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 2.5rem 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-right: 1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sidebar-title {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Fraunces', serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 2.4rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 0.95;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -0.04em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--ink);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sidebar-divider {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 1px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 1.8rem 0 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.stage-label {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.68rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.13em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--moss);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.stages {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>list-style: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-left: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.stages::before {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>left: 0.28rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>bottom: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 1px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(23,40,32,.22);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.stage-item {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 4.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #68746d;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.88rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.3;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: color .3s, transform .3s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.stage-dot {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>left: -1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 0.65rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 0.65rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1.5px solid #7d897f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--paper);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: all .3s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.stage-item.active {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--moss);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: translateX(4px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.stage-item.active .stage-dot {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--clay);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: var(--clay);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 0 0 5px rgba(200,98,63,.14);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sidebar-bottom {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-top: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top: 1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.now-viewing-label {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.68rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.13em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #6c766f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 0.4rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.now-viewing-name {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Fraunces', serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.05rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--moss);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.2;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.scroll-hint {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.78rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #68746d;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.45;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: flex-end;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 0.4rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.scroll-arrow {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* MAIN CONTENT */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.workspace {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow-y: scroll;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>scroll-snap-type: y mandatory;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.project-card {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>scroll-snap-align: start;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0 3rem 3rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.project-topline {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 2rem 0 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.project-number-label {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.15em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.4;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.project-inner {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 2rem 2.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.project-top-row {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 1.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.project-description-block {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.description-heading {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.72rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.12em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--ink);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.description-text {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.6;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--ink);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.stage-badge {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 220px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-left: 1.5px solid currentColor;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 1rem 1rem 1rem 1.25rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 0 0.35rem 0.35rem 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 120px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-height: 120px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.stage-badge::before {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>left: -0.35rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 0.6rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 0.6rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: currentColor;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 0 0 5px rgba(255,255,255,0.4);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.badge-icon {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>right: 0.85rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0.7;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.badge-label {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.65rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.13em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.badge-stages {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Fraunces', serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.3;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Panel grid */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel-grid {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(3, 1fr);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: stretch;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 1.3rem 1.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(23,40,32,0.14);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-rows: auto repeat(3, 1fr);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel:first-child { border-radius: 0.3rem 0 0 0.3rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel:last-child { border-radius: 0 0.3rem 0.3rem 0; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel:not(:first-child) { border-left: none; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel-header {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.68rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.13em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel-item {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.85rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.5;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #2a3a2f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.6rem 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top: 1px solid rgba(23,40,32,0.08);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 4rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel-item span {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel-item:first-of-type { border-top: none; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel-item a {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--clay);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: underline;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-underline-offset: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-left: 0.2em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel-item a:first-child {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Project color themes */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-moss .project-number-label { color: var(--moss); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-moss .project-inner { background: var(--moss-light); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-moss .stage-badge { color: var(--moss); background: rgba(56,99,77,0.08); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-moss .panel-header { color: var(--moss); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-clay .project-number-label { color: var(--clay); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-clay .project-inner { background: var(--clay-light); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-clay .stage-badge { color: var(--clay); background: rgba(200,98,63,0.08); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card-clay .panel-header { color: var(--clay); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Mobile */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 760px) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.shell { grid-template-columns: 1fr; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.sidebar { display: none; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.workspace { height: auto; scroll-snap-type: none; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.project-card { padding: 1.5rem; min-height: auto; scroll-snap-align: none; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.project-top-row { flex-direction: column; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.stage-badge { width: 100%; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.panel-grid { grid-template-columns: 1fr; gap: 0.5rem; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.panel { border-radius: 0.3rem !important; border-left: 1px solid rgba(23,40,32,0.14) !important; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;div class="shell"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- SIDEBAR --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;aside class="sidebar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1 class="sidebar-title"&gt;Project&lt;br&gt;dashboard&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sidebar-divider"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="stage-label"&gt;Research Stage&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;ol class="stages"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="stage-item" data-stage="1"&gt;&lt;span class="stage-dot"&gt;&lt;/span&gt;Literature search and synthesis&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="stage-item" data-stage="2"&gt;&lt;span class="stage-dot"&gt;&lt;/span&gt;Design and methodology&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="stage-item" data-stage="3"&gt;&lt;span class="stage-dot"&gt;&lt;/span&gt;Data collection and processing&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="stage-item" data-stage="4"&gt;&lt;span class="stage-dot"&gt;&lt;/span&gt;Data visualization and analysis&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ol&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sidebar-bottom"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="now-viewing-label"&gt;Now Viewing&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="now-viewing-name" id="now-viewing"&gt;Lexical Stress Perception&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="scroll-hint"&gt;Scroll to learn more about each of our shared projects, goals, and learning objectives. &lt;span class="scroll-arrow"&gt;↓&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/aside&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- MAIN WORKSPACE --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;main class="workspace" id="workspace"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- PROJECT 01 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;article class="project-card card-moss" data-project="Lexical Stress Perception" data-stages="1,2,3,4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-topline"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="project-number-label"&gt;Project 01&lt;br&gt;Lexical Stress Perception&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-top-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="project-description-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="description-heading"&gt;Project Description&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="description-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>In English, we rely on subject pronouns to know who's doing the action: "I speak" vs. "you speak." Spanish often drops that pronoun entirely because the verb ending itself signals who is doing the action. Sometimes, verb endings will differ in stress alone, like &lt;em&gt;&lt;strong&gt;HA&lt;/strong&gt;-blo&lt;/em&gt; ("I speak") vs. &lt;em&gt;ha-&lt;strong&gt;BLÓ&lt;/strong&gt;&lt;/em&gt; ("he/she spoke"). These contrasts can be difficult for English-speaking learners to detect, because stress-based contrasts are less frequent in English.</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;br&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>The goal of this study is to examine how successfully Spanish learners at various proficiency levels process spoken Spanish verb forms that differ only in lexical stress. Our goal is to determine the best instructional level to introduce stress perception training.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="stage-badge"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="badge-icon"&gt;🔍&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="badge-label"&gt;Research Stage(s)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="badge-stages"&gt;All stages under development&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="panel-header"&gt;What You'll Do&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;Read, synthesize, and critically evaluate relevant literature&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;Prepare audio files for experimental use&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;Analyze data and produce visuals&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="panel-header"&gt;What You'll Learn&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;How to approach scholarly articles and use a citation manager&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;Quality-control and management of large stimulus sets&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;How to run Praat scripts; the basics of R Markdown&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="panel-header"&gt;What You'll Need&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;span&gt;A citation manager of your choice.&lt;br&gt;&lt;a href="https://guides.lib.utexas.edu/c.php?g=539686&amp;p=3694904" target="_blank" style="margin-left:0;"&gt;We suggest starting here!&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;a href="https://www.fon.hum.uva.nl/praat/" target="_blank"&gt;Praat&lt;/a&gt;&amp;nbsp;acoustic analysis software; &lt;a href="https://utexas.account.box.com/login" target="_blank"&gt;Box&lt;/a&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;a href="https://cran.r-project.org/" target="_blank"&gt;R/RStudio&lt;/a&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- PROJECT 02 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;article class="project-card card-clay" data-project="Perception-Production Training (NSF)" data-stages="3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-topline"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="project-number-label"&gt;Project 02&lt;br&gt;Perception-Production Training (NSF)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-top-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="project-description-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="description-heading"&gt;Project Description&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="description-text" style="font-size:13pt;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Perception-Production Training, often referred to as the "NSF" project, is a large-scale, multi-year project that....</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="stage-badge"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="badge-icon"&gt;🔍&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="badge-label"&gt;Research Stage(s)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="badge-stages"&gt;Data collection &amp;amp; processing&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="panel-header"&gt;What You'll Do&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;[Enter what you'll do for Project 02]&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="panel-header"&gt;What You'll Learn&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;[Enter what you'll learn for Project 02]&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="panel-header"&gt;What You'll Need&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;[Enter the resources needed for Project 02]&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- PROJECT 03 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;article class="project-card card-moss" data-project="Bilingual Sound Communities" data-stages="1,2,3,4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-topline"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="project-number-label"&gt;Project 03&lt;br&gt;Bilingual Sound Communities&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-top-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="project-description-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="description-heading"&gt;Project Description&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="description-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>[Enter the Project 03 description here]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="stage-badge"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="badge-icon"&gt;🔍&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="badge-label"&gt;Research Stage(s)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="badge-stages"&gt;All stages under development&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="panel-header"&gt;What You'll Do&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;[Enter what you'll do for Project 03]&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="panel-header"&gt;What You'll Learn&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;[Enter what you'll learn for Project 03]&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="panel-header"&gt;What You'll Need&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;[Enter the resources needed for Project 03]&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- PROJECT 04 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;article class="project-card card-clay" data-project="Murcia Project" data-stages="3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-topline"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="project-number-label"&gt;Project 04&lt;br&gt;Murcia Project&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-top-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="project-description-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="description-heading"&gt;Project Description&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="description-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>[Enter the Project 04 description here]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="stage-badge"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="badge-icon"&gt;🔍&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="badge-label"&gt;Research Stage(s)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="badge-stages"&gt;Data collection &amp;amp; processing&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="panel-header"&gt;What You'll Do&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;[Enter what you'll do for Project 04]&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="panel-header"&gt;What You'll Learn&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;[Enter what you'll learn for Project 04]&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="panel-header"&gt;What You'll Need&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;[Enter the resources needed for Project 04]&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="panel-item"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const workspace = document.getElementById('workspace');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const cards = Array.from(document.querySelectorAll('.project-card'));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const stageItems = Array.from(document.querySelectorAll('.stage-item'));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const nowViewing = document.getElementById('now-viewing');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function updateSidebar(card) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const projectName = card.dataset.project;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const activeStages = card.dataset.stages.split(',');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>nowViewing.textContent = projectName;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>stageItems.forEach((item, i) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>item.classList.toggle('active', activeStages.includes(String(i + 1)));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const observer = new IntersectionObserver((entries) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const visible = entries</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.filter(e =&gt; e.isIntersecting)</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.sort((a, b) =&gt; b.intersectionRatio - a.intersectionRatio);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (visible.length) updateSidebar(visible[0].target);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}, { root: workspace, threshold: [0.3, 0.5, 0.7] });</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>cards.forEach(card =&gt; observer.observe(card));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Init</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (cards.length) updateSidebar(cards[0]);</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
